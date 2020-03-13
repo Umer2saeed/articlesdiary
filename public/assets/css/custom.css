@@ -1,0 +1,38 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+footer.main {
+    margin-top: 15px;
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid #ebebeb;
+}
+
+.tile-stats {
+    padding: 18px !important;
+}
+
+.page-body .select2-container .select2-choice {
+    height: 38px !important;
+    line-height: 35px !important;
+}
+
+.heading-bg {
+    color: #606c82;
+}
+
+.error {
+    color: red;
+}
+
+.add-user-btn {
+    margin-bottom: 8px;
+}
