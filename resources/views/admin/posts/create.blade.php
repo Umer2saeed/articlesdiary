@@ -2,9 +2,11 @@
 
 @section('content')
 
+    @include('includes.tinyeditor.tinyeditor')
+
     <h1 class="text-center heading-bg">Create Post</h1>
 
-    {!! Form::open(['method' => 'POST', 'action' => 'AdminPostsController@store' , 'id' => 'createPostForm', 'files' => 'true']) !!}
+    {!! Form::open(['method' => 'POST', 'action' => 'AdminPostsController@store' , 'id' => 'createPostForm', 'files' => true]) !!}
 
     <div class="form-group">
         {!! Form::label('title', 'Title') !!}
@@ -23,14 +25,16 @@
 
     <div class="form-group">
         {!! Form::label('body', 'Body') !!}
-        {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Enter Body']) !!}
+        {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
     </div>
     <br>
     <div class="form-group">
-        {!! Form::submit('Create User', ['class' => 'btn btn-success btn-block']) !!}
+        {!! Form::button('<i class="entypo-check"></i> Create Post', ['type' => 'submit', 'class' => 'btn btn-success btn-icon icon-left btn-block btn-sm']) !!}
+
     </div>
 
     {!! Form::close() !!}
+
 
 
 

@@ -1,0 +1,50 @@
+.comment-reply-toggle-form {
+    display: none;
+}
+
+.sidebar-box {
+    margin-bottom: 15px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.search-form .form-group input {
+    height: 44px !important;
+    padding-right: 50px;
+    font-size: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.sidebar-box ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.sidebar-box ul li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.sidebar-box ul li a {
+    color: #000000;
+}
+
+.sidebar-box ul li a:hover{
+    color: orange;
+}
+
+.ion {
+    font-size: 17px;
+    margin: 0 5px;
+}
+
+.post-description {
+    color: #999999;
+}
+
+.post-description:hover {
+    color: orange;
+}

@@ -3,53 +3,59 @@
 @section('content')
         <div class="row">
 
-            <div class="col-sm-3 col-xs-6">
-                <div class="tile-stats tile-red">
-                    <div class="icon"><i class="entypo-users"></i></div>
-                    <div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0">0</div>
-                    <h3>Registered users</h3>
-                    <p>so far in our blog.</p>
-                </div>
-            </div>
+         <h1 class="text-center heading-bg">Admin</h1>
 
-            <div class="col-sm-3 col-xs-6">
+            <canvas id="myChart"></canvas>
 
-                <div class="tile-stats tile-green">
-                    <div class="icon"><i class="entypo-chart-bar"></i></div>
-                    <div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
-
-                    <h3>Daily Visitors</h3>
-                    <p>this is the average value.</p>
-                </div>
-
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-
-                <div class="tile-stats tile-aqua">
-                    <div class="icon"><i class="entypo-mail"></i></div>
-                    <div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
-
-                    <h3>New Messages</h3>
-                    <p>messages per day.</p>
-                </div>
-
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-
-                <div class="tile-stats tile-blue">
-                    <div class="icon"><i class="entypo-rss"></i></div>
-                    <div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
-
-                    <h3>Subscribers</h3>
-                    <p>on our site right now.</p>
-                </div>
-
-            </div>
 
         </div>
 
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Posts', 'Categories', 'Comments'],
+            datasets: [{
+                label: 'data of ArticlesDiary',
+                data: [ {{ $postsCount }}, {{ $categoriesCount }}, {{ $commentsCount }} ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+</script>
 
 
 @endsection

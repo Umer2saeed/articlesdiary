@@ -14,7 +14,7 @@ jQuery(document).ready(function($)
     tableContainer.dataTable({
         "sPaginationType": "bootstrap",
         "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        "bStateSave": true,
+        "bStateSave": false,
 
 
         // Responsive Settings
@@ -42,7 +42,6 @@ jQuery(document).ready(function($)
 
 
     jQuery("#createUserForm").validate({
-
         ignore: [],
         rules: {
             name: "required",
@@ -72,7 +71,6 @@ jQuery(document).ready(function($)
     });
 
     jQuery("#editUserForm").validate({
-
         ignore: [],
         rules: {
             name: "required",
@@ -94,7 +92,6 @@ jQuery(document).ready(function($)
     });
 
     jQuery("#createPostForm").validate({
-
         ignore: [],
         rules: {
             title: "required",
@@ -105,6 +102,54 @@ jQuery(document).ready(function($)
             title: "Please enter title",
             category_id: "Please select category",
             body: "Please enter body"
+        }
+    });
+
+    jQuery("#editPostForm").validate({
+        ignore: [],
+        rules: {
+            title: "required",
+            category_id: "required",
+            body: "required"
+        },
+        messages: {
+            title: "Please enter title",
+            category_id: "Please select category",
+            body: "Please enter body"
+        }
+    });
+
+
+    jQuery("#createCategoryForm").validate({
+        ignore: [],
+        rules: {
+            name: "required",
+        },
+        messages: {
+            name: "Please add category first!",
+        }
+    });
+
+    jQuery("#editCategoryForm").validate({
+        ignore: [],
+        rules: {
+            name: "required",
+        },
+        messages: {
+            name: "Please add category first!",
+        }
+    });
+
+
+    $('#options').click(function () {
+        if (this.checked){
+            $('.checkBoxes').each2(function () {
+                this.checked = true;
+            });
+        }else{
+            $('.checkBoxes').each2(function () {
+                this.checked = false;
+            });
         }
     });
 

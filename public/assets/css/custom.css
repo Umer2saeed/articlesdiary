@@ -33,6 +33,22 @@ footer.main {
     color: red;
 }
 
-.add-user-btn {
+.add-user-btn, .add-post-btn, .add-category-btn, .add-media-btn {
     margin-bottom: 8px;
 }
+
+/*front-end : Upload Media Form Input Text*/
+.dropzone .dz-message .dz-button {
+    font-size: 24px !important;
+    color: lightgrey !important;
+}
+
+#createMediaForm {
+    margin-top: 35px !important;
+}
+
+.dropzone {
+    border-radius: 8px;
+    border: 1px solid #303641 !important;
+}
+

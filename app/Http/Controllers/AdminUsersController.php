@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Country;
 use App\Http\Requests\UsersEditRequest;
 use App\Photo;
+use App\Post;
 use App\Role;
 use App\User;
 use Couchbase\UserSettings;
@@ -65,11 +66,10 @@ class AdminUsersController extends Controller
     {
         $user = User::findOrfail($id);
         $input = $request->all();
-
         if ($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
-            $photo = Photo::updateOrCreate(['file' => $name]);
+            $photo = Photo::updateOrCreate(['id' => $user->photo_id],['file' => $name]);
             $input['photo_id'] = $photo->id;
         }
         $user->update($input);
@@ -79,10 +79,19 @@ class AdminUsersController extends Controller
 
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        unlink(public_path() . $user->photo->file);
-        $user->delete();
+        $posts = Post::all()->where('user_id', $id);
+        foreach ($posts as $post) {
+            unlink(public_path() . $post->photo->file);
+            $post->delete();
+        }
 
+        $user = User::findOrFail($id);
+        if ($user->photo){
+            unlink(public_path() . $user->photo->file);
+            Photo::where('id', $user->photo_id)->first()->delete();
+        }
+
+        $user->delete();
         Session::flash('deleted_user', 'The user has been deleted!');
         return redirect('/admin/users');
     }

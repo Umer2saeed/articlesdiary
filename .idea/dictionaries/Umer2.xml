@@ -5,6 +5,7 @@
       <w>articlesdiary</w>
       <w>datatables</w>
       <w>daterangepicker</w>
+      <w>dropzone</w>
       <w>enderror</w>
       <w>entypo</w>
       <w>fillable</w>
@@ -17,6 +18,7 @@
       <w>selectboxit</w>
       <w>sparkline</w>
       <w>toastr</w>
+      <w>uncategorized</w>
     </words>
   </dictionary>
 </component>

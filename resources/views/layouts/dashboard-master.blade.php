@@ -1,9 +1,11 @@
-@include('includes.header-files')
+@include('includes.dashboard.header-files')
 
-@include('includes.sidebar')
-@include('includes.header')
+@include('includes.dashboard.sidebar')
+@include('includes.dashboard.header')
 
         @yield('content')
 
-{{--@include('includes.footer')--}}
-@include('includes.bottom-files')
+{{--@include('includes.dashboard.footer')--}}
+@include('includes.dashboard.bottom-files')
+
+

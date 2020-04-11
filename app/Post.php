@@ -11,6 +11,7 @@ class Post extends Model
         'category_id',
         'photo_id',
         'title',
+        'slug',
         'body'
     ];
 
@@ -24,6 +25,10 @@ class Post extends Model
 
     public function category() {
         return $this->belongsTo('App\category');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Comment');
     }
 }
 

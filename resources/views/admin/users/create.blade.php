@@ -4,7 +4,7 @@
 
     <h1 class="text-center heading-bg">Create User</h1>
 
-    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store' , 'id' => 'createUserForm', 'files'=> 'true']) !!}
+    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store' , 'id' => 'createUserForm', 'files'=> true]) !!}
 
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
@@ -47,7 +47,8 @@
         </div>
     <br>
         <div class="form-group">
-            {!! Form::submit('Create User', ['class' => 'btn btn-success btn-block']) !!}
+            {!! Form::button('<i class="entypo-check"></i> Create User', ['type' => 'submit', 'class' => 'btn btn-success  btn-icon icon-left  btn-block btn-sm']) !!}
+
         </div>
 
     {!! Form::close() !!}
